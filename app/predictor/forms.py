@@ -13,7 +13,6 @@ class DetectionForm(forms.Form):
     education_type = forms.ChoiceField(choices=education_type, widget=style)
     family_status = forms.ChoiceField(choices=family_status, widget=style)
     housing_type = forms.ChoiceField(choices=housing_type, widget=style)
-    owned_mobile_phone = forms.IntegerField(initial=1, widget=forms.TextInput(attrs={'readonly': 'readonly'}))
     owned_work_phone = forms.ChoiceField(choices=[(0, 'Yes'), (1, 'No')], widget=style)
     owned_phone = forms.ChoiceField(choices=[(0, 'Yes'), (1, 'No')], widget=style)
     owned_Email = forms.ChoiceField(choices=[(0, 'Yes'), (1, 'No')], widget=style)

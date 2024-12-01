@@ -48,7 +48,7 @@ jobs:
           username: ${{ secrets.AWS_EC2_USERNAME }}
           key: ${{ secrets.AWS_EC2_KEY }}
           script: |
-            IMAGE_NAME=${{ secrets.DOCKER_USER }}/easy-credit-eligibility-checker
+            IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/easy-credit-eligibility-checker
             docker pull $IMAGE_NAME:latest
             docker compose -f docker-compose.yml down
             docker compose -f docker-compose.yml up -d

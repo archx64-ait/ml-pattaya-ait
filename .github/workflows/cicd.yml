@@ -3,7 +3,7 @@ name: Build and Deploy Django App
 on:
   push:
     branches:
-      - django
+      - main
     paths:
       - 'app/**'
 

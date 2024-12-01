@@ -5,7 +5,6 @@
         <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <br>
             {% if result != '' and result != 'None' %}
-
                 <div {% if result == "Eligible" %}
                     class="alert alert-success mt-3"
                 {% else %}
@@ -13,10 +12,6 @@
                 {% endif %}
                     role="alert">{{ result }}</div>
             {% endif %}
-
-            <div class="alert alert-info mt-3" role="alert">
-                {{ result }}
-            </div>
         </div>
     </div>
 {% endblock %}

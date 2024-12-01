@@ -5,6 +5,7 @@ on:
     branches:
       - main
     paths:
+      - '.github/workflows/**'
       - 'app/**'
 
 jobs:
@@ -25,7 +26,8 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/easy-credit-eligibility-checker
+          DOCKER_USER=${{ secrets.DOCKER_USERNAME }}
+          IMAGE_NAME=$DOCKER_USER/easy-credit-eligibility-checker
           TAG=$(echo ${{ github.sha }} | head -c 7)
           
           # Build the image

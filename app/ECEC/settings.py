@@ -28,6 +28,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://archx64.online',
+    'http://archx64.online'
+]
+
 CORS_ORIGIN_ALLOW_ALL = True
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"

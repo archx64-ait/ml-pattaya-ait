@@ -1,5 +1,5 @@
 import os
-import joblib
+import pickle
 from typing import Any
 
 import pandas as pd
@@ -14,6 +14,9 @@ from predictor.forms import DetectionForm
 from google import generativeai
 
 
+class IndexView(TemplateView):
+    template_name = "index.html"
+
 class SuccessView(TemplateView):
     template_name = 'success.html'
 
@@ -21,10 +24,10 @@ class SuccessView(TemplateView):
         context = super().get_context_data(**kwargs)
         result = self.request.GET.get("result")
         try:
-            context["result"] = str(result)
+            context["result"] = result
 
         except ValueError:
-            context["result"] = '0'
+            context["result"] = ''
 
         return context
 
@@ -42,8 +45,8 @@ class PredictFormView(FormView):
 
     form_class = DetectionForm
     template_name = 'predict.html'
-    # loaded_model = pickle.load(open(os.path.join(PROJECT_ROOT, "best_model.pkl"), "rb"))
-    loaded_model = joblib.load(os.path.join(PROJECT_ROOT, "best_model_pipeline.joblib"))
+    loaded_model = pickle.load(open(os.path.join(PROJECT_ROOT, "best_model_pipeline.pkl"), "rb"))
+    # loaded_model = joblib.load(os.path.join(PROJECT_ROOT, "best_model_pipeline.joblib"))
 
     def form_valid(self, form):
         respone = None
@@ -81,7 +84,8 @@ class PredictFormView(FormView):
         """
 
         if result == 0:
-            response = self.llm.generate_content([few_shot_prompt, bad_user_data])
+            print(type(result))
+            response = self.llm.generate_content([few_shot_prompt, bad_user_data]).text
         else:
             response = 'Eligible'
 

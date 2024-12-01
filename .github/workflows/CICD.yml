@@ -50,5 +50,5 @@ jobs:
           script: |
             IMAGE_NAME=${{ secrets.DOCKER_USER }}/easy-credit-eligibility-checker
             docker pull $IMAGE_NAME:latest
-            docker compose -f docker-compose.yaml down
-            docker compose -f docker-compose.yaml up -d
+            docker compose -f docker-compose.yml down
+            docker compose -f docker-compose.yml up -d

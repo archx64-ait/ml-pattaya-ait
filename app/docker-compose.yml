@@ -3,7 +3,7 @@ services:
       build: .
       volumes:
         - .:/app
-      image: ${{ secrets.DOCKER_USERNAME }}/easy-credit-eligibility-checker
+      image: archx64ait/easy-credit-eligibility-checker
       expose:
         - 8000
         - 80

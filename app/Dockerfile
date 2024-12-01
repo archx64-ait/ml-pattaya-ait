@@ -9,7 +9,7 @@ WORKDIR /django
 
 RUN pip3 install --upgrade pip
 
-RUN pip3 install numpy cloudpickle scikit-learn imblearn seaborn pandas django-cors-headers crispy-bootstrap4 gunicorn xgboost lightgbm
+RUN pip3 install numpy pandas scikit-learn imblearn xgboost lightgbm cloudpickle joblib google-generativeai django-cors-headers crispy-bootstrap4 gunicorn
 
 COPY . .
 

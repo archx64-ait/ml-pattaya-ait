@@ -31,7 +31,7 @@ jobs:
           TAG=$(echo ${{ github.sha }} | head -c 7)
           
           # Build the image
-          docker build -t $IMAGE_NAME:$TAG -t $IMAGE_NAME:latest .
+          docker build -t $IMAGE_NAME:$TAG -t $IMAGE_NAME:latest .app/
           
           # Push the image with both tags
           docker push $IMAGE_NAME:$TAG

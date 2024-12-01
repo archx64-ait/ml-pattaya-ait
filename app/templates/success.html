@@ -12,6 +12,9 @@
                 {% endif %}
                     role="alert">{{ result }}</div>
             {% endif %}
+
+            <br>
+            <a class="btn btn-primary" href="{% url 'predictor:detect' %}">Back</a>
         </div>
     </div>
 {% endblock %}
